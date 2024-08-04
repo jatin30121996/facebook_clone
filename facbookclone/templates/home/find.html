@@ -1,0 +1,48 @@
+{% extends 'basic.html' %}
+{% block content %}
+{% if check %}
+    <li><a href="#">{{phone}}</a></li>
+{% endif %}
+{% endblock content%}
+{% block phone_numbers %}{{phone}}{% endblock phone_numbers %}
+{% block phone_numberss %}{{phone}}{% endblock phone_numberss %}
+{% block findnumber %}{{phone}}{% endblock findnumber %}
+{% block request %}{{phone}}{% endblock request %}
+{% block friends %}{{phone}}{% endblock friends %}
+{% block profile %}{{phone}}{% endblock profile %}
+{% block home %}{{phone}}{% endblock home %}
+{% block body %}
+<div class="cntnr">
+    <div class="cnt">
+        {% if value_check %}
+             {% for data in data %}
+                {% load static %}
+                <img src="{% static 'images/person.jpg' %}" width="100" height="100">
+                <div>
+                    {% if data in check_data %}
+                        <h4>{{data.0}} {{data.1}} ({{data.2}})</h4>
+                        <a href="/cancel/{{phone}}/{{data.2}}"><button name="cancel_request" class="btn">Cancel Request</button></a>
+                    {% else %}
+                        <h4>{{data.0}} {{data.1}} ({{data.2}})</h4>
+                        <a href="/findus/{{phone}}/{{data.2}}"><button name="sent_request" class="btn">Send Request</button></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            {% for data in data %}
+                {% load static %}
+                <img src="{% static 'images/person.jpg' %}" width="100" height="100">
+                <div>
+                    {% if data.0 == check_data.0 and data.1 == check_data.1 and data.2 == check_data.2 %}
+                        <h4>{{data.0}} {{data.1}} ({{data.2}})</h4>
+                        <a href="/cancel/{{phone}}/{{data.2}}"><button name="cancel_request" class="btn">Cancel Request</button></a>
+                    {% else %}
+                        <h4>{{data.0}} {{data.1}} ({{data.2}})</h4>
+                        <a href="/findus/{{phone}}/{{data.2}}"><button name="sent_request" class="btn">Send Request</button></a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}

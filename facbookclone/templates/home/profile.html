@@ -1,0 +1,33 @@
+{% extends 'basic.html' %}
+{% block content %}
+{% if check %}
+    <li><a href="#">{{phone}}</a></li>
+{% endif %}
+{% endblock content%}
+{% block phone_numbers %}{{phone}}{% endblock phone_numbers %}
+{% block phone_numberss %}{{phone}}{% endblock phone_numberss %}
+{% block findnumber %}{{phone}}{% endblock findnumber %}
+{% block request %}{{phone}}{% endblock request %}
+{% block friends %}{{phone}}{% endblock friends %}
+{% block profile %}{{phone}}{% endblock profile %}
+{% block home %}{{phone}}{% endblock home %}
+{% block body %}
+    <div class="cntnr">
+        <form action="/upload/{{phone}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn">Upload</button>
+        </form>
+        <div class="prfl">
+            {% for data in data %}
+            {% load static %}
+            <img src="{% static 'images/person.jpg' %}" width="100" height="100">
+            <div>
+                <h4>{{data.0}} {{data.1}} ({{phone}})</h4>
+                <p>{{data.3}} </p>
+                <img src="/media/{{data.4.image}}" width="600" height="600">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock body %}

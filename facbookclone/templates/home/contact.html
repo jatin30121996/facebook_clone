@@ -1,0 +1,29 @@
+{% extends 'basic.html' %}
+{% block title %}About{% endblock title %}
+{% block phone_numbers %}{{phone}}{% endblock phone_numbers %}
+{% block phone_numberss %}{{phone}}{% endblock phone_numberss %}
+{% block findnumber %}{{phone}}{% endblock findnumber %}
+{% block request %}{{phone}}{% endblock request %}
+{% block friends %}{{phone}}{% endblock friends %}
+{% block profile %}{{phone}}{% endblock profile %}
+{% block home %}{{phone}}{% endblock home %}
+{% block content %}
+{% if check %}
+    <li><a href="#">{{phone}}</a></li>
+{% endif %}
+{% endblock content%}
+{% block body %}
+<div class="cntnr">
+    <form action="/contact/{{phone}}" method="post">{% csrf_token %}
+        <div class="setalign">
+            <label for="phone">Phone</label><br>
+            <input type="text" id="phone" class="phonee" name="phone" value="{{phone}}" placeholder="Phone Number"><br>
+            <label for="email">Email</label><br>
+            <input type="text" id="email" class="phonee" name="email" value="{{email}}" placeholder="Phone Number"><br>
+            <label for="suggestion">Suggestion</label><br>
+            <textarea placeholder="suggestions" id="suggestion" name="suggestion" rows="5"></textarea>
+            <button type="submit" class="btn btnn pad pdy">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}

@@ -1,0 +1,42 @@
+{% extends 'basic.html' %}
+{% block title %}About{% endblock title %}
+{% block phone_numbers %}{{phone}}{% endblock phone_numbers %}
+{% block phone_numberss %}{{phone}}{% endblock phone_numberss %}
+{% block findnumber %}{{phone}}{% endblock findnumber %}
+{% block request %}{{phone}}{% endblock request %}
+{% block friends %}{{phone}}{% endblock friends %}
+{% block profile %}{{phone}}{% endblock profile %}
+{% block home %}{{phone}}{% endblock home %}
+{% block content %}
+{% if check %}
+    <li><a href="#">{{phone}}</a></li>
+{% endif %}
+{% endblock content%}
+{% block body %}
+<div class="cntnr">
+    <form method="post" action="/home/{{phone}}"> {% csrf_token %}
+        <div class="setalign">
+            <label for="first_name" class="lbl pdy">First Name</label>
+            <input type="text" id="first_name" name="fname" class="srch pad pdy" value="{{fname}}" placeholder="First name" required><br>
+            <label for="last_name" class="lbl pdy">Last Name</label>
+            <input type="text" id="last_name" name="lname" class="srch pad pdy" value="{{lname}}" placeholder="Last name" required><br>
+            <label for="email" class="lbl pdy">Email</label>
+            <input type="text" id="email" name="email" class="srch pad pdy" value="{{email}}" placeholder="Email" required><br>
+            <label for="phone_number" class="lbl pdy">Phone Number</label>
+            <input type="text" id="phone_number" name="phone_number" class="srch pad pdy" value="{{phone}}" placeholder="Phone Number" required><br>
+            <hr>
+            <label for="gender" class="lbl pdy">Gender</label>
+            <input type="text" id="gender" name="gender" value="{{gender}}" class="srch pad pdy" placeholder="Gender" required><br>
+            <label for="DOB" class="lbl pdy">Date of Birth</label>
+            <input type="date" id="DOB" value="{{dob}}" name="dob" class="srch pad pdy" placeholder="Date of Birth" required><br>
+            <label for="school" class="lbl pdy">High School</label>
+            <input type="text" id="school" value="{{school}}" name="school" class="srch pad pdy" placeholder="High School"><br>
+            <label for="College" class="lbl pdy">College or University</label>
+            <input type="text" class="srch pad pdy" value="{{college}}" name="college" id="college" placeholder="college or university"><br>
+            <label for="company" class="lbl pdy">Company</label>
+            <input type="text" id="company" name="company" value="{{company}}" class="srch pad pdy" placeholder="company"><br>
+        </div><br>
+        <button type="submit" class="btn btnn pad pdy">Submit</button>
+    </form>
+</div>
+{% endblock body %}

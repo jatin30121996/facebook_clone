@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+{% load static %}
+    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="right_image">
+            <img src="{% static 'images/social.jpg' %}" width="400" height="200" alt="logo">
+            <h2>Social Networking helps you connect and share with the people in your life.</h2>
+        </div>
+        <div class="login_div">
+            <form method="post" action="/log_in/"> {% csrf_token %}
+                <input class="srch pad" type="text" name="phone" placeholder="phonenumber"><br>
+                <input class="srch pad" type="password" name="password" placeholder="password"><br>
+                <button class="btn pad" type="submit">Login</button><br>
+            </form>
+            <a href="#" class="links pad">Forgot Password</a><br>
+            <hr>
+            <button class="hide btn pad">Create new account</button><br>
+            <p><b>Create a page</b> for business or celebrity or brand</p>
+        </div>
+        <div class="hidden hiden">
+            <form method="post" action="/about/">
+                {% csrf_token %}
+                <h1>Sign Up</h1>
+                <p>its quick and easy</p>
+                <hr>
+                <input type="text" class="srch pad" name="fname" placeholder="First_Name" ><br>
+                <input type="text" class="srch pad" name="lname" placeholder="Last_Name" ><br>
+                <input type="text" class="srch pad" name="phone_number" placeholder="Phone Number" ><br>
+                <input type="password" class="srch pad" name="password" placeholder="New Password" ><br>
+                <input type="email" class="srch pad" name="email" placeholder="Email"><br>
+                <input type="text" class="srch pad" name="gender" placeholder="Gender"><br>
+                <input type="date" class="srch pad" name="dob" placeholder="Gender"><br>
+                <button type="submit" class="btn pad">Create Account</button>
+                <button type="button" class="back pad btn">Back</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    let mybutton = document.getElementsByClassName('hide');
+    mybutton[0].addEventListener('click', ()=>{
+    document.getElementsByClassName('hidden')[0].classList.toggle('hiden');
+    document.getElementsByClassName('login_div')[0].classList.toggle('hiden');
+    document.getElementsByClassName('right_image')[0].classList.toggle('hiden');
+    });
+    let choose = document.getElementsByClassName('back');
+    choose[0].addEventListener('click', ()=>{
+    document.getElementsByClassName('hidden')[0].classList.toggle('hiden');
+    document.getElementsByClassName('login_div')[0].classList.toggle('hiden');
+    document.getElementsByClassName('right_image')[0].classList.toggle('hiden');
+    });
+</script>
+</html>

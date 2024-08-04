@@ -1,0 +1,96 @@
+body {
+background-color: rgb(210, 210, 210);
+}
+
+@media only screen and (max-width:700px){
+.hiden{
+display: none;
+}
+.links{
+text-decoration: none;
+}
+.btn{
+background-color:blue;
+color: white;
+}
+.login_div{
+border: 2px solid white;
+border-radius: 20px;
+background-color: white;
+text-align: center;
+}
+.srch{
+border: 2px solid rgb(243, 246, 248);
+border-radius: 5px;
+}
+.date{
+background-color: white;
+}
+.hidden{
+border: 2px solid white;
+border-radius: 20px;
+background-color: white;
+text-align: center;
+}
+.pad{
+margin: 10px;
+}
+}
+
+@media only screen and (min-width: 768px){
+
+.container{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 200px;
+}
+
+.pad{
+padding: 20px;
+margin:5px;
+}
+
+.links{
+text-decoration: none;
+}
+
+.btn{
+background-color:blue;
+color: white;
+}
+
+.login_div{
+border: 2px solid white;
+border-radius: 20px;
+background-color: white;
+padding: 10px;
+text-align: center;
+}
+
+.srch{
+border: 2px solid rgb(243, 246, 248);
+border-radius: 5px;
+}
+
+.right_image{
+margin: 20px;
+}
+.date{
+background-color: white;
+padding: 5px;
+}
+
+.hidden{
+border: 2px solid white;
+border-radius: 20px;
+background-color: white;
+padding: 10px;
+text-align: center;
+}
+
+.hiden{
+display: none;
+}
+
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title%}</title>
+    {% load static %}
+    <link href="{% static 'css/style1.css' %}" type="text/css" rel="stylesheet">
+    {% block css %}{% endblock css %}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="touchclick">
+        <div class="threedot"></div>
+        <div class="threedot"></div>
+        <div class="threedot"></div>
+    </div>
+    <nav class="draw_border hidenn">
+        <ul class="align_items" id="navbar">
+            <li><a href="#"><b><span class="active headinglogo"><i>Social Networking</i></span></b></a></li>
+            <li><a href="/home/{% block home %}{% endblock home %}"  class="nav-item">Home</a></li>
+            <li ><a href="/find/{% block findnumber %}{% endblock findnumber %}" class="nav-item">Find Friends</a></li>
+            <li ><a  href="/abouts/{% block phone_numbers %}{% endblock phone_numbers %}" class="nav-item">About</a></li>
+            <li ><a href="/profile/{% block profile %}{% endblock profile %}" class="nav-item">Profile</a></li>
+            <li ><a href="/contact/{% block phone_numberss %}{% endblock phone_numberss %} " class="nav-item">Contact US</a></li>
+            <li ><a href="/friends/{% block friends %}{% endblock friends %}" class="nav-item">Friends</a></li>
+            <li ><a href="/request/{% block request %}{% endblock request %}" class="nav-item">Requests</a></li>
+            <li ><a href="/lig" class="nav-item">Log Out</a></li>
+            {% block content %}
+
+            {% endblock content %}
+        </ul>
+        <div class="searchbaritem">
+            <form>
+                <input type="text" placeholder="search" name="search" class="srch pad">
+                <button type="submit" class="btn pad">Search</button>
+            </form>
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock body %}
+</body>
+<script>
+    let mybutton = document.getElementsByClassName('touchclick');
+    mybutton[0].addEventListener('click', () => {
+    document.getElementsByClassName('draw_border')[0].classList.toggle("hidenn");
+    });
+</script>
+{% block js %}
+{% endblock js %}
+</html>
